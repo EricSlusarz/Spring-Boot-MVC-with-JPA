@@ -17,17 +17,19 @@ public class Review {
 	String datee;
 	String reviewCategory;
 	String contentattribute;
+	String imageUrlAddress;
 
 	@ManyToOne
 	public Category category;
 
 	public Review(long idForReview, String titleofReview, String datee, String reviewCategory, String contentattribute,
-			Category category) {
+			String imageUrlAddress, Category category) {
 		super();
 		this.titleofReview = titleofReview;
 		this.datee = datee;
 		this.reviewCategory = reviewCategory;
 		this.contentattribute = contentattribute;
+		this.imageUrlAddress = imageUrlAddress;
 		this.category = category;
 	}
 
@@ -74,6 +76,13 @@ public class Review {
 	 */
 	public Category getCategory() {
 		return category;
+	}
+
+	/**
+	 * @return the imageUrlAddress
+	 */
+	public String getImageUrlAddress() {
+		return imageUrlAddress;
 	}
 
 }

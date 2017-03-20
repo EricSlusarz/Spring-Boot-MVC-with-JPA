@@ -37,10 +37,12 @@ img{
 
  <!-- Name of car, the image, the type of car and then it's transmission type respecitivly -->
     
-<p th:each="iterationvariable: ${review}" th:text="${iterationvariable.titleofReview}" />
-<p th:each="iterationvariable: ${review}" th:text="${iterationvariable.reviewCategory}" />
-<p th:each="iterationvariable: ${review}" th:text="${iterationvariable.contentattribute}" />
-<p th:each="iterationvariable: ${review}" th:text="${iterationvariable.datee}" />
+<p th:each="iterationvariable: ${review}"   th:text="${iterationvariable.titleofReview}" />
+<p th:each="iterationvariable: ${review}"   th:text="${iterationvariable.reviewCategory}" />
+<p th:each="iterationvariable: ${review}"   th:text="${iterationvariable.contentattribute}" />
+<p th:each="iterationvariable: ${review}"   th:text="${iterationvariable.datee}" />
+<img th:each="iterationvariable: ${review}" th:src="@{${iterationvariable.imageUrlAddress}}"/> 
+
 
 
 <!-- Quick and easy lines for Design -->

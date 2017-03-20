@@ -51,6 +51,8 @@ img{
 		<li th:text="'Category (car type): ' + ${TryThis.reviewCategory}">Review Category</li>
 		<li th:text="'Made in: ' + ${TryThis.datee}">datee</li>
 		<li th:text="'Type of Engine: ' + ${TryThis.contentattribute}">Content</li>
+		<img th:src="@{${TryThis.imageUrlAddress}}"/> 
+
 		<li> <a th:href="@{${'/showreview' + TryThis.idForReview}} ">Click Here For More Details</a> </li>
 
 	

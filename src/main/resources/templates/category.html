@@ -3,6 +3,34 @@
 <head>
 	<title>Categories</title>
 
+	<style type="text/css">
+h1{
+	font-size: 200px;
+	background-color: teal;
+	color: blue;
+	text-align: center;
+}	
+
+h2{
+	font-size: 120px;
+}
+
+td{
+	color:blue;
+
+}
+p {
+	font-size: 35px;
+}
+
+img{
+	width: 1600px;
+	height: 1000px;
+}
+
+
+</style>
+
 </head>
 <body style="background-color: darkgray;">
 <h1>Car Categories for Reviews </h1>
@@ -22,6 +50,8 @@
 		<li th:text="'Category (car type): ' + ${TryThis.reviewCategory}">Review Category</li>
 		<li th:text="'Made in: ' + ${TryThis.datee}">datee</li>
 		<li th:text="'Type of Engine: ' + ${TryThis.contentattribute}">Content</li>
+		<img th:src="@{${TryThis.imageUrlAddress}}"/> 
+
 		<li> <a th:href="@{${'/showreview' + TryThis.idForReview}} ">Click Here For More Details</a> </li>
 
 	

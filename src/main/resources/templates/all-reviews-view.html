@@ -57,10 +57,10 @@ img{
 <div th:each="iterationvariable: ${reviews}">
 	<ul>
 		<li th:text="${iterationvariable.titleofReview}">Title</li>
-	<!--	<img th:src="@{${iterationvariable.imageUrlForReview}}"/>  -->
 		<li th:text="${iterationvariable.reviewCategory}">Review Category</li>
 		<li th:text="${iterationvariable.contentattribute}">Content</li>
 		<li th:text="${iterationvariable.datee}">Date</li>
+		<img th:src="@{${iterationvariable.imageUrlAddress}}"/> 
 		<li> <a th:href="@{${'/showreview' + iterationvariable.idForReview}} ">Click Here For More Details</a> </li>
 	
 		<br></br>
