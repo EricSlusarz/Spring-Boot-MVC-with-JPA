@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Categories</title>
+	<style type="text/css">
+h1{
+	font-size: 200px;
+	background-color: teal;
+	color: blue;
+	text-align: center;
+}	
+
+h2{
+	font-size: 120px;
+}
+
+td{
+	color:blue;
+
+}
+p {
+	font-size: 35px;
+}
+
+img{
+	width: 1600px;
+	height: 1000px;
+}
+
+
+</style>
+
+</head>
+<body style="background-color: darkgray;">
+<h1>Car Categories for Reviews </h1>
+    
+
+ <!-- Name of car, the image, the type of car and then it's transmission type respecitivly -->
+ <div  th:each="categoryVar: ${categoryName}" >
+
+<p th:text="'Catgory #: ' + ${categoryVar.categoryID}"/>
+<p th:text="'Category of car: ' + ${categoryVar.categoryTitle}"/>
+<p th:text="'Desicripton of category: ' + ${categoryVar.CATEGORY_DESCRIPTION}"/>
+<p> <a th:href="@{${'/showcategory' + categoryVar.categoryID}} ">Click Here to View All Reviews In this Category</a> </p>
+
+
+<hr></hr> 
+
+	<ul  th:each="TryThis: ${categoryVar.reviews}">
+		<li th:text="'Car name: ' + ${TryThis.titleofReview}">Title</li>
+		<li th:text="'Category (car type): ' + ${TryThis.reviewCategory}">Review Category</li>
+		<li th:text="'Made in: ' + ${TryThis.datee}">datee</li>
+		<li th:text="'Type of Engine: ' + ${TryThis.contentattribute}">Content</li>
+		<li> <a th:href="@{${'/showreview' + TryThis.idForReview}} ">Click Here For More Details</a> </li>
+
+	
+		<br></br>
+		<hr> </hr>
+		<hr> </hr>
+		<br></br>
+	</ul>
+		<hr> </hr>
+		<hr> </hr>
+		<hr> </hr>
+
+
+
+</div>
+
+<h2>Car Categories for Reviews </h2>
+
+<hr></hr> 
+<hr></hr>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>This is my index for reviews</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    	<style type="text/css">
+h1{
+	font-size: 200px;
+	background-color: teal;
+	color: blue;
+	text-align: center;
+}	
+
+h2{
+	font-size: 120px;
+}
+
+td{
+	color:blue;
+
+}
+p {
+	font-size: 35px;
+}
+
+img{
+	width: 1600px;
+	height: 1000px;
+}
+
+
+</style>
+</head>
+<body style="background-color: darkgray;">
+	<h1>My indexy</h1>
+
+
+ <div  th:each="categoryVar: ${category}" >
+<p> <a th:href="@{${'/showallcategory'}} ">Click Here to See All Categories</a> </p>
+
+
+<p th:text="'Catgory #: ' + ${categoryVar.categoryID}"/>
+<p th:text="'Category of car: ' + ${categoryVar.categoryTitle}"/>
+<p th:text="'Desicripton of category: ' + ${categoryVar.CATEGORY_DESCRIPTION}"/>
+<p> <a th:href="@{${'/showcategory' + categoryVar.categoryID}} ">Click Here to View All Reviews In this Category</a> </p>
+
+<hr></hr> 
+
+</div>
+
+	<table>
+	<tr>
+			<th>Name of Car</th>
+			<th>Type of Car</th>
+			<th>Date of Build</th>
+			<th>Engine Type</th>
+			<th>Hyper Link To Car </th>	
+	</tr>	
+			<tr th:each="tableiteration : ${reviews}">
+			<td th:text="${tableiteration.titleofReview}">title</td>
+			<td th:text="${tableiteration.reviewCategory}">review category</td>
+			<td th:text="${tableiteration.datee}">review category</td>
+			<td th:text="${tableiteration.contentattribute}">content</td>
+			<td><a th:href="@{${'/showreview' + tableiteration.idForReview}} ">Click Here For More Details</a>	</td>
+	</tr>	
+</table>
+<hr> </hr>
+
+<!-- Same as table iteration but in list form with some lines and breaks to space review entries out-->
+<div th:each="iterationvariable: ${reviews}">
+	<ul>
+		<li th:text="${iterationvariable.titleofReview}">Title</li>
+	<!--	<img th:src="@{${iterationvariable.imageUrlForReview}}"/>  -->
+		<li th:text="${iterationvariable.reviewCategory}">Review Category</li>
+		<li th:text="${iterationvariable.contentattribute}">Content</li>
+		<a th:href="@{${'/showreview' + iterationvariable.idForReview}} ">Click Here For More Details</a>
+	
+		<br></br>
+		<hr> </hr>
+		<hr> </hr>
+		<hr> </hr>
+		<br></br>
+	</ul>
+</div>
+
+
+
+
+</body>
+</html>

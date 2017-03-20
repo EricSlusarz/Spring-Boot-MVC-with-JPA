@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Reviews</title>
+<style type="text/css">
+h1{
+	font-size: 200px;
+	background-color: teal;
+	color: blue;
+	text-align: center;
+}	
+h2{
+	font-size: 120px;
+}
+td{
+	color:blue;
+}
+li{
+	font-size: 35px;
+}
+img{
+	width: 1600px;
+	height: 1000px;
+}
+</style>
+
+
+</head>
+	<body style="background-color: lightgray;">
+
+	<!-- Title and Header for All Reivews Page -->
+	<h1>All The Reviews</h1>
+	<hr> </hr>
+	<h2> Table Of Reviews </h2>
+
+
+	<!-- Table Displaying all the Information-->
+<table>
+	<tr>
+			<th>Name of Car</th>
+			<th>Type of Car</th>
+			<th>Date of Car</th>
+			<th>Engine Type</th>
+			<th> Hyper Link To Car </th>	
+	</tr>	
+			<tr th:each="tableiteration : ${reviews}">
+			<td th:text="${tableiteration.titleofReview}">title</td>
+			<td th:text="${tableiteration.reviewCategory}">review category</td>
+			<td th:text="${tableiteration.datee}">datee</td>
+			<td th:text="${tableiteration.contentattribute}">content</td>
+			<td><a th:href="@{${'/showreview' + tableiteration.idForReview}} ">Click Here For More Details</a>	</td>
+	</tr>	
+</table>
+<hr> </hr>
+
+	<!-- Same as table iteration but in list form with some lines and breaks to space review entries out-->
+<div th:each="iterationvariable: ${reviews}">
+	<ul>
+		<li th:text="${iterationvariable.titleofReview}">Title</li>
+	<!--	<img th:src="@{${iterationvariable.imageUrlForReview}}"/>  -->
+		<li th:text="${iterationvariable.reviewCategory}">Review Category</li>
+		<li th:text="${iterationvariable.contentattribute}">Content</li>
+		<li th:text="${iterationvariable.datee}">Date</li>
+		<li> <a th:href="@{${'/showreview' + iterationvariable.idForReview}} ">Click Here For More Details</a> </li>
+	
+		<br></br>
+		<hr> </hr>
+		<hr> </hr>
+		<hr> </hr>
+		<br></br>
+	</ul>
+</div>
+
+<hr> </hr>
+
+
+
+</body>
+</html>

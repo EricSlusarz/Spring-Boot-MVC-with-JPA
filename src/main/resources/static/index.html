@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>This is my index for reviews</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>My indexy</h1>
+
+
+	<table>
+	<tr>
+			<th>Name of Car</th>
+			<th>Type of Car</th>
+			<th>Engine Type</th>
+			<th>Hyper Link To Car </th>	
+	</tr>	
+			<tr th:each="tableiteration : ${reviews}">
+			<td th:text="${tableiteration.titleofReview}">title</td>
+			<td th:text="${tableiteration.reviewCategory}">review category</td>
+			<td th:text="${tableiteration.contentattribute}">content</td>
+			<td><a th:href="@{${'/showreview' + tableiteration.idForReview}} ">Click Here For More Details</a>	</td>
+	</tr>	
+</table>
+<hr> </hr>
+</body>
+</html>
